@@ -1,0 +1,52 @@
+password minimum of 6 number/ character.
+
+
+state={
+  username="",
+  email="",
+  password=""
+}
+  handleSubmit=(e)=>
+	e.preventDefault();
+	const {username, email, password} = this.state;
+	this.props.signUpUser(username, email, password);
+}
+
+
+inside app.js
+state={
+	currentUser: {loggedin:false}
+}
+
+componentdidmount(){
+	let user= localStorage.getItem('userData') //"{}" or null	
+if(user === true){
+user= JSON.parse(user)
+	this.setState({
+	currentUser: {...user, loggedIn:true}
+})
+}
+signUpUser =(newUsername, newEmail , newPassword)=>{
+	console.log(username, email, password);
+	axios.post('https://' , {
+	username: newUsername,
+	email: newEmail,
+	password: newPassword
+ })
+	then.(result=>{
+	console.log(result);
+	let JWT= results.data.auth_token;
+	//locastorage stores key and value
+	localStorage.setItem('userToken', JWT);
+	localStorage.setItem('userData', JSON.stringify(result.data.user));
+	this.setState({
+	currentUser:{...result.data.user, loggedin:true}
+	})
+	})
+}
+
+
+//send the data to api
+
+
+//pass the function to child and grandchild

@@ -1,0 +1,40 @@
+loginform
+signup  form 
+login page
+
+state={
+ islogin=true
+}
+
+//we need  function
+
+toggleLogin=()=>{
+ this.setstate({
+	islogin: !this.state.islogin //reverse
+})
+}
+
+render(){	 
+	const{islogin} = this.state;
+return(
+<>
+
+{islogin ? (
+<loginform togglelogin={this.state.togglelogin} />
+
+
+state={
+ username:"",
+ pw:""
+}
+
+handleinput=(name,value)=>{
+ this.setstate({
+ [name]: value   //???
+})
+
+render(){
+const {username,password} = this.state
+<input type="password" placeholder="Enter your password..." name="password" onChange={(e)=> this.handleinput(e.target.name, e.target.value)}/>
+
+}
