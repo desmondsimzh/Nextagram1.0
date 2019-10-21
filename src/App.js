@@ -99,12 +99,12 @@ class App extends React.Component {
           <Route path="/login" component={props =>{
             return <Loginpage loginUser={this.loginUser} signUpUser={this.signUpUser} loggedIn={this.state.currentUser.loggedIn} {...props}/>
           }}/>
-          <Route 
+          {/* <Route 
             path="/upload"
             component={() => {
               return <UploadPage />;
             }}
-          />
+          /> */}
           {/* <form onSubmit={this.handleSubmit}>
            <input value={this.state.text} onChange={this.handleInput}/>
            <input type="submit" value="Submit"/>
